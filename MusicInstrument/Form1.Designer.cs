@@ -30,6 +30,7 @@
         {
             this.trackVolume = new System.Windows.Forms.TrackBar();
             this.trackFrequency = new System.Windows.Forms.TrackBar();
+            this.panel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.trackVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackFrequency)).BeginInit();
             this.SuspendLayout();
@@ -43,6 +44,8 @@
             this.trackVolume.Name = "trackVolume";
             this.trackVolume.Size = new System.Drawing.Size(798, 56);
             this.trackVolume.TabIndex = 0;
+            this.trackVolume.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TheMouseDown);
+            this.trackVolume.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TheMouseUp);
             // 
             // trackFrequency
             // 
@@ -56,12 +59,25 @@
             this.trackFrequency.Size = new System.Drawing.Size(56, 325);
             this.trackFrequency.TabIndex = 1;
             this.trackFrequency.Value = 100;
+            this.trackFrequency.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TheMouseDown);
+            this.trackFrequency.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TheMouseUp);
+            // 
+            // panel
+            // 
+            this.panel.Location = new System.Drawing.Point(1, 1);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(744, 330);
+            this.panel.TabIndex = 2;
+            this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TheMouseDown);
+            this.panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
+            this.panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TheMouseUp);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.trackFrequency);
             this.Controls.Add(this.trackVolume);
             this.Name = "Form1";
@@ -77,5 +93,6 @@
 
         private TrackBar trackVolume;
         private TrackBar trackFrequency;
+        private Panel panel;
     }
 }
